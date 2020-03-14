@@ -1,18 +1,21 @@
 import multiprocessing
-from src.stream_producer import StreamProducer
-from src.stream_consumer import StreamConsumer
+from stream_consumer import StreamConsumer
+from stream_producer import StreamProducer
+
+streams_and_topics = {
+        'http://gtfs.ovapi.nl/nl/tripUpdates.pb': 'trip_updates',
+        'http://gtfs.ovapi.nl/nl/vehiclePositions.pb': 'vehicle_positions',
+        'http://gtfs.ovapi.nl/nl/alerts.pb': 'alerts'
+    }
 
 
 def start_consumer():
-    consumer = StreamConsumer(['trip_updates', 'vehicle_positions'])
+    consumer = StreamConsumer(list(streams_and_topics.values()))
     consumer.start()
 
 
 def start_producer():
-    producer = StreamProducer({
-        'http://gtfs.ovapi.nl/nl/tripUpdates.pb': 'trip_updates',
-        'http://gtfs.ovapi.nl/nl/vehiclePositions.pb': 'vehicle_positions'
-    })
+    producer = StreamProducer(streams_and_topics)
     producer.start()
 
 

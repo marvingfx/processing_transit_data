@@ -1,5 +1,6 @@
 from kafka import KafkaConsumer
 from typing import List
+import json
 
 
 class StreamConsumer(object):
@@ -18,4 +19,5 @@ class StreamConsumer(object):
             if poll_message is None or not poll_message.values():
                 continue
 
-            print(poll_message.va)
+            # print(json.loads(list(poll_message.values())[0][0].value))
+
