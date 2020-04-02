@@ -20,7 +20,7 @@ if __name__ == '__main__':
     spark_streaming_context = StreamingContext(sparkContext=spark_context, batchDuration=2)
 
     brokers = 'localhost:9092,0.0.0.0:2181'
-    topics = ['trip_update', 'alerts', 'vehicle_positions']
+    topics = ['trip_updates', 'alerts', 'vehicle_positions']
     directKafkaStream = kafka.KafkaUtils.createDirectStream(
         spark_streaming_context,
         topics,

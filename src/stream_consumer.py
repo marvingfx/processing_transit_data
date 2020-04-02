@@ -19,5 +19,5 @@ class StreamConsumer(object):
             if poll_message is None or not poll_message.values():
                 continue
 
-            # print(json.loads(list(poll_message.values())[0][0].value))
+            print(json.loads(list(poll_message.values())[0][0].value))
 

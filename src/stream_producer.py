@@ -40,4 +40,4 @@ class StreamProducer(object):
 
                 self.producer.flush()
 
-            time.sleep(2)
+            time.sleep(10)
